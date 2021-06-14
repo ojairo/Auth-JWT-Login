@@ -13,12 +13,12 @@ module.exports= (req, res, next) => {
 
   const [scheme, token] = verifyParts
   if(!/^Bearer$/i.test(scheme)){
-    return res.status(400).send({error: 'Token without formatted.'})
+    return res.status(400).send({error: 'Unformatted token'})
   }
 
   jwt.verify(token, secret, (err, decoted) => {
     if(err){
-      return res.status(400).send({error: 'Invalid token.'})
+      return res.status(400).send({error: 'Expired token.'})
     }
     req.userId = decoted.id
     return next()
