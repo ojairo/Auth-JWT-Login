@@ -14,7 +14,6 @@ module.exports = {
     const uuid = uuidv4()
 
     const passHashed = await bcrypt.hash(pass, 8)
-
     const [id] = await connection('users')
     .insert({
       id: uuid,

@@ -16,7 +16,6 @@ module.exports = {
     }
 
     const passUnhashed = await bcrypt.compare(pass, checkUser.pass)
-
     if(!passUnhashed){
       return res.status(404).send({message: 'Incorrect password for this user.'})
     }
