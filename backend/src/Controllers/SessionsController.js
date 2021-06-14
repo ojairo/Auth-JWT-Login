@@ -20,7 +20,8 @@ module.exports = {
       return res.status(404).send({message: 'Incorrect password for this user.'})
     }
 
-    const token = jwt.sign({id: checkUser.id}, secret, {
+    const token = jwt.sign({}, secret, {
+      subject: checkUser.id,
       expiresIn,
     })
 
