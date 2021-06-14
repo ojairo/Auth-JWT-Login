@@ -4,30 +4,38 @@ function Login() {
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
 
-  return(
-    <div className="logon-container">
-      <section className="form">
-        <img src={logoImg} alt="< OJAIRO />" width="50%"/>
+  function handleSubmit(){
 
-        <form>
+  }
+
+  return(
+    <div className='loginContainer'>
+      <section className='form'>
+        <img src={logoImg} alt='< OJAIRO />' width='50%'/>
+
+        <form onSubmit={()=>handleSubmit()}>
           <h1>Faça seu login</h1>
           <input
-            placeholder="Usuário"
+            placeholder='Usuário'
             value={user}
             onChange={(e)=>setUser(e.target.value)}
           />
 
           <input
-            placeholder="Senha"
+            placeholder='Senha'
             value={pass}
             onChange={(e)=>setPass(e.target.value)}
             type='password'
           />
 
-          <button>
+          <button type='submit' className='buttonForm'>
             Entrar
           </button>
         </form>
+
+        <p className="textSignUp">
+          Não possui conta? <b>Registre-se agora.</b>
+        </p>
       </section>
     </div>
   )
