@@ -1,0 +1,64 @@
+.dashContainer{
+  width: 100%;
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.verticalHeader{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 120px;
+  height: 95vh;
+
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  padding: 20px 20px;
+  background-color: #101010;
+  border-radius: 15px;
+}
+
+.verticalHeader img{
+  width: 100%;
+  max-width: 80px;
+}
+
+.icons{
+  width: 100%;
+  max-width: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.iconsBack{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #235BE9;
+  margin-bottom: 15px;
+  padding: 8px 8px;
+  border-radius: 50%;
+}
+
+.iconLogOut{
+  display: flex;
+  align-items: center;
+
+}
+
+.iconLogOut b{
+  color: #235BE9;
+  margin-left: 10px;
+}
