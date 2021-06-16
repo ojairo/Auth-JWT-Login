@@ -22,11 +22,13 @@ import {
   ImDroplet,
   ImPower,
   ImConnection,
-  ImCreditCard,
 } from 'react-icons/im'
+
+import {FcSimCardChip} from 'react-icons/fc'
 
 import './styles.css'
 import logoAlt from '../../assets/logo-alt.png'
+import mastercardImg from '../../assets/mastercard.png'
 
 function Dashboard() {
   return(
@@ -88,7 +90,7 @@ function Dashboard() {
           <div className='profile'>
             <section className='profileTitle'>
               <p>Perfil do usuário</p>
-              <HiDotsVertical size={22} color='#2F4DF1'/>
+              <FiSettings size={22} color='#2F4DF1'/>
             </section>
 
             <section className='profileData'>
@@ -142,24 +144,28 @@ function Dashboard() {
                   <ImDroplet size={18} color='#EEEE'/>
                 </div>
                 <div className="billPayments">
-                  <p className='dataLines'>
-                    Conta de água
-                  </p>
+                  <div className='billAndPayment'>
+                    <p className='dataLines'>
+                      Conta de água
+                    </p>
+                    <p className='payment'>Pago</p>
+                  </div>
                   <b style={{color:'#FFF'}}>R$100,00</b>
-                  <b style={{color: '#2F4DF1'}}>PAGO</b>
                 </div>
               </div>
 
               <div className='divData'>
                 <div className='iconBack'>
-                  <ImPower size={18} color='#EEEE'/>
+                  <ImPower size={16} color='#EEEE'/>
                 </div>
                 <div className="billPayments">
-                  <p className='dataLines'>
-                    Conta de energia
-                  </p>
+                  <div className='billAndPayment'>
+                    <p className='dataLines'>
+                      Conta de energia
+                    </p>
+                    <p className='payment'>Pago</p>
+                  </div>
                   <b style={{color:'#FFF'}}>R$100,00</b>
-                  <b style={{color: '#770000'}}>A PAGAR</b>
                 </div>
               </div>
 
@@ -168,11 +174,14 @@ function Dashboard() {
                   <ImConnection size={18} color='#EEEE'/>
                 </div>
                 <div className="billPayments">
-                  <p className='dataLines'>
-                    Conta de Internet
-                  </p>
+                  <div className='billAndPayment'>
+                    <p className='dataLines'>
+                      Conta de internet
+                    </p>
+                    <p className='payment'>Pago</p>
+                  </div>
                   <b style={{color: '#FFF'}}>R$100,00</b>
-                  <b style={{color: '#2F4DF1'}}>PAGO</b>
+
                 </div>
               </div>
 
@@ -181,11 +190,14 @@ function Dashboard() {
                   <HiCreditCard size={18} color='#EEEE'/>
                 </div>
                 <div className="billPayments">
-                  <p className='dataLines'>
-                    Conta do cartão
-                  </p>
+                  <div className='billAndPayment'>
+                    <p className='dataLines'>
+                      Conta do cartão
+                    </p>
+                    <p className='payment'>A pagar</p>
+                  </div>
                   <b style={{color:'#FFF'}}>R$100,00</b>
-                  <b style={{color: '#770000'}}>A PAGAR</b>
+
                 </div>
               </div>
             </section>
@@ -193,8 +205,85 @@ function Dashboard() {
         </section>
 
         <section className='serviceSection'>
-          <div className="currentServices">
+          <div className='currentServices'>
+            <div className='creditCard'>
+              <section className='creditHeader'>
+                <FcSimCardChip size={46}/>
+                <ImConnection size={28} color='#EEEE'/>
+              </section>
+              <p className="creditNumber">0000 0000 0000 0000</p>
+              <section className='creditFooter'>
+                <p className='creditName'>JAIRO JUNIOR</p>
+                <img src={mastercardImg} alt='MASTERCARD' />
+              </section>
+            </div>
 
+            <p className="historyTitle">
+              Histórico de transação
+            </p>
+
+            <section className="currentTransation">
+              <div className="transations">
+                <div className="photoTransations">
+                  <img src="https://i.pravatar.cc/150?img=3" alt="J"/>
+                </div>
+                <div className="descTransitions">
+                  <p>Pagamento da conta de água</p>
+                </div>
+
+                <div className="valueTransitions">
+                  <p>R$100,00</p>
+                </div>
+              </div>
+              <div className="transations">
+                <div className="photoTransations">
+                  <img src="https://i.pravatar.cc/150?img=4" alt="J"/>
+                </div>
+                <div className="descTransitions">
+                  <p>Pagamento da conta de internet</p>
+                </div>
+
+                <div className="valueTransitions">
+                  <p>R$100,00</p>
+                </div>
+              </div>
+              <div className="transations">
+                <div className="photoTransations">
+                  <img src="https://i.pravatar.cc/150?img=5" alt="J"/>
+                </div>
+                <div className="descTransitions">
+                  <p>Pagamento do seguro do carro</p>
+                </div>
+
+                <div className="valueTransitions">
+                  <p>R$890,00</p>
+                </div>
+              </div>
+              <div className="transations">
+                <div className="photoTransations">
+                  <img src="https://i.pravatar.cc/150?img=7" alt="J"/>
+                </div>
+                <div className="descTransitions">
+                  <p>Pagamento da conta de energia</p>
+                </div>
+
+                <div className="valueTransitions">
+                  <p>R$100,00</p>
+                </div>
+              </div>
+              <div className="transations">
+                <div className="photoTransations">
+                  <img src="https://i.pravatar.cc/150?img=9" alt="J"/>
+                </div>
+                <div className="descTransitions">
+                  <p>Pagamento do aluguel da casa</p>
+                </div>
+
+                <div className="valueTransitions">
+                  <p>R$1.200,00</p>
+                </div>
+              </div>
+            </section>
           </div>
         </section>
       </div>
