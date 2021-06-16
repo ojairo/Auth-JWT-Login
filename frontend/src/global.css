@@ -76,3 +76,7 @@ form input{
 .back-link:hover{
   opacity: 0.9;
 }
+
+.linkDecoration{
+  text-decoration: none;
+}
