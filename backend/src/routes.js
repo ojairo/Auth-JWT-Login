@@ -13,13 +13,13 @@ routes.post('/users', celebrate({
     name: Joi.string().required(),
     email: Joi.string().required().email(),
     user: Joi.string().required(),
-    pass: Joi.string().required(),
+    pass: Joi.string().required().min(8),
   })
 }) ,UserController.create)
 
 routes.get('/users', celebrate({
   [Segments.HEADERS]: Joi.object({
-    authorization: Joi.string().required(),
+    authorization: Joi.string().required().regex(/^Bearer /i),
   }).unknown(),
 }),auth, UserController.index)
 
