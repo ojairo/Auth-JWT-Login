@@ -21,7 +21,7 @@ describe('Users', () => {
     .post('/users')
     .send({
       name:'Jairo Júnior',
-	    email: 'jairo@gmail.com',
+	    email: 'jairo@jairo.com',
 	    user: 'ojairo',
 	    pass: 'ojairo'
     })
