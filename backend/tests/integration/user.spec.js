@@ -23,7 +23,7 @@ describe('Users', () => {
       name:'Jairo Júnior',
 	    email: 'jairo@jairo.com',
 	    user: 'ojairo',
-	    pass: 'ojairo'
+	    pass: 'ojairo123'
     })
     expect(res.body).toHaveProperty('id')
     expect((
