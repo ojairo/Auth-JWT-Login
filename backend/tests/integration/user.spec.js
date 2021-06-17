@@ -19,7 +19,6 @@ describe('Users', () => {
   it('should be able to create a new user', async () => {
     const res = await req(app)
     .post('/users')
-    // set('Authorization', token) 51:54
     .send({
       name:'Jairo Júnior',
 	    email: 'jairo@gmail.com',
