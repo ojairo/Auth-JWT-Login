@@ -12,9 +12,10 @@ module.exports = {
   async create(req, res){
     const {user, name, email, pass} = req.body
     const passHashed = await bcrypt.hash(pass, 8)
+    const idUnique = generateUniqueId()
     const [id] = await connection('users')
     .insert({
-      id: generateUniqueId(),
+      id: idUnique,
       name,
       email,
       user,
@@ -22,7 +23,7 @@ module.exports = {
     })
 
     if(id){
-      return res.json({id})
+      return res.json({id: idUnique})
     }
 
     return res.status(400).json({message: 'User is not inserted.'})
