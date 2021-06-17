@@ -1,5 +1,5 @@
 const connection = require('../database/connection')
-const {v4: uuidv4} = require('uuid')
+const generateUniqueId = require('../utils/generateUniqueId')
 const bcrypt = require('bcrypt')
 
 module.exports = {
@@ -10,14 +10,13 @@ module.exports = {
   },
 
   async create(req, res){
-    const {user, name, pass} = req.body
-    const uuid = uuidv4()
-
+    const {user, name, email, pass} = req.body
     const passHashed = await bcrypt.hash(pass, 8)
     const [id] = await connection('users')
     .insert({
-      id: uuid,
+      id: generateUniqueId(),
       name,
+      email,
       user,
       pass: passHashed
     })

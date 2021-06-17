@@ -18,7 +18,7 @@ module.exports= (req, res, next) => {
 
   jwt.verify(token, secret, (err, decoted) => {
     if(err){
-      return res.status(400).send({error: 'Expired token.'})
+      return res.status(400).send({error: 'Invalid token.'})
     }
     req.userId = decoted.id
     return next()

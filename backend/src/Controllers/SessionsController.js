@@ -1,8 +1,6 @@
 const connection = require('../database/connection')
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-
-const {expiresIn, secret} = require('../config/auth.json')
+const generateUniqueToken = require('../utils/generateUniqueToken')
 
 module.exports = {
   async create(req, res){
@@ -20,12 +18,8 @@ module.exports = {
       return res.status(404).send({message: 'Incorrect password for this user.'})
     }
 
-    const token = jwt.sign({}, secret, {
-      subject: checkUser.id,
-      expiresIn,
-    })
-
-
+    const token = generateUniqueToken(checkUser.id)
+    res.header('Authorization', token)
     return res.status(200).json({checkUser, token})
 
   }
