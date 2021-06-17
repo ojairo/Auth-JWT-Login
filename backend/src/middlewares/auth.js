@@ -20,7 +20,7 @@ module.exports= (req, res, next) => {
     if(err){
       return res.status(400).send({error: 'Invalid token.'})
     }
-    req.userId = decoted.id
+    req.userId = decoted.sub
     return next()
   })
 
