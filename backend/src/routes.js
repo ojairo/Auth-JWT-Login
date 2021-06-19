@@ -13,7 +13,7 @@ routes.post('/users', celebrate({
     name: Joi.string().required(),
     email: Joi.string().required().email(),
     user: Joi.string().required(),
-    pass: Joi.string().required().min(8),
+    pass: Joi.string().required(),
   })
 }), UserController.create)
 
