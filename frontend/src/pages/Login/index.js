@@ -1,5 +1,5 @@
-import React, {useState, useContext, useEffect}from 'react';
-import {Link, useHistory} from 'react-router-dom'
+import React, {useState, useEffect}from 'react';
+import {useHistory} from 'react-router-dom'
 import authLogin from '../../utils/authLogin';
 
 import logoImg from '../../assets/logo.png'
