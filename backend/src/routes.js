@@ -15,12 +15,12 @@ routes.post('/users', celebrate({
     user: Joi.string().required(),
     pass: Joi.string().required().min(8),
   })
-}) ,UserController.create)
+}), UserController.create)
 
 routes.get('/users', celebrate({
   [Segments.HEADERS]: Joi.object({
     authorization: Joi.string().required().regex(/^Bearer /i),
   }).unknown(),
-}),auth, UserController.index)
+}), auth, UserController.index)
 
 module.exports = routes
