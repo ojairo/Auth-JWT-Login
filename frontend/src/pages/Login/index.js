@@ -1,5 +1,5 @@
 import React, {useState, useEffect}from 'react';
-import {useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import authLogin from '../../utils/authLogin';
 
 import logoImg from '../../assets/logo.png'
@@ -15,7 +15,7 @@ function Login() {
   useEffect(() => {
     api.defaults.headers.Authorization = ''
     localStorage.clear()
-    {document.title = 'Login'}
+    document.title = 'Login'
   }, [])
 
   async function handleLogin(){
