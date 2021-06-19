@@ -89,16 +89,16 @@ function Dashboard() {
         <img src={logoAlt} alt='< J />'/>
         <div className='icons'>
           <div className='iconsBack'>
-            <FiUser size={32} color= '#FFF'/>
+            <FiUser size={24} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiGrid size={32} color= '#FFF'/>
+            <FiGrid size={24} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiDollarSign size={32} color= '#FFF'/>
+            <FiDollarSign size={24} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiSettings size={32} color= '#FFF'/>
+            <FiSettings size={24} color= '#FFF'/>
           </div>
         </div>
 
