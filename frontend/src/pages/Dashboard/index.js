@@ -42,6 +42,7 @@ function Dashboard() {
         const response = await AuthDashboard(token)
         if(response){
           setLoading(false)
+          {document.title = 'Dashboard'}
           return
         }
       }

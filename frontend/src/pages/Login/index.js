@@ -15,6 +15,7 @@ function Login() {
   useEffect(() => {
     api.defaults.headers.Authorization = ''
     localStorage.clear()
+    {document.title = 'Login'}
   }, [])
 
   async function handleLogin(){
