@@ -55,13 +55,6 @@ function Login() {
             Entrar
           </button>
         </form>
-
-        <p className="textSignIn">
-          Não possui conta?
-          <Link className='textRegister' to='/register'>
-            <b>Registre-se agora.</b>
-          </Link>
-        </p>
       </section>
     </div>
   )
