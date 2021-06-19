@@ -1,18 +1,28 @@
-import React, {useState}from 'react';
+import React, {useState, useContext, useEffect}from 'react';
 import {Link, useHistory} from 'react-router-dom'
+import authLogin from '../../utils/authLogin';
 
 import logoImg from '../../assets/logo.png'
 import './styles.css'
+import api from '../../services/api';
 
 function Login() {
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
-
+  const [colorBorder, setColorBorder] = useState('white')
   const history = useHistory()
 
-  function handleSubmit(e){
-    e.preventDefault()
-    history.push('/dashboard')
+  useEffect(() => {
+    api.defaults.headers.Authorization = ''
+    localStorage.clear()
+  }, [])
+
+  async function handleLogin(){
+    const res = await authLogin(user, pass)
+    if(res){
+      return history.push('/dashboard')
+    }
+    return setColorBorder('#ff2b2b')
   }
 
   return(
@@ -20,12 +30,13 @@ function Login() {
       <section className='form'>
         <img src={logoImg} alt='< OJAIRO />' width='350'/>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <h1>Faça seu login</h1>
           <input
             placeholder='Usuário'
             value={user}
             onChange={(e)=>setUser(e.target.value)}
+            style={{borderWidth: 2, borderColor: colorBorder,}}
           />
 
           <input
@@ -33,9 +44,14 @@ function Login() {
             value={pass}
             onChange={(e)=>setPass(e.target.value)}
             type='password'
+            style={{borderWidth: 2, borderColor: colorBorder,}}
           />
 
-          <button type='submit' className='button'>
+          <button
+            type='button'
+            className='button'
+            onClick={() => handleLogin()}
+          >
             Entrar
           </button>
         </form>

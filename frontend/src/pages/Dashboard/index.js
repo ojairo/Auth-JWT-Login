@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import {
   FiUser,
   FiGrid,
@@ -15,7 +15,6 @@ import {
   HiTrendingDown,
   HiCreditCard,
   HiFlag,
-  HiDotsVertical,
 } from 'react-icons/hi'
 
 import {
@@ -29,33 +28,88 @@ import {FcSimCardChip} from 'react-icons/fc'
 import './styles.css'
 import logoAlt from '../../assets/logo-alt.png'
 import mastercardImg from '../../assets/mastercard.png'
+import AuthDashboard from '../../utils/authDashboard';
+import LogOut from '../../utils/logOut';
 
 function Dashboard() {
+  const history = useHistory()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    (async () => {
+      const token = localStorage.getItem('token')
+      if(token){
+        const response = await AuthDashboard(token)
+        if(response){
+          setLoading(false)
+          return
+        }
+      }
+      setLoading(false)
+      return history.push('/')
+    })()
+
+  }, [])
+
+  async function handleLogOut(){
+    LogOut()
+    history.push('/')
+  }
+
+  if(loading){
+    return (
+      <div className="dashContainer">
+        <div style={
+          {
+            display: 'flex',
+            width: '100%',
+            maxWidth: '100vw',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }
+        }>
+          <h1 style={
+            {
+              fontSize: 26,
+              color: 'white',
+              fontWeight: 'bold'
+              }
+            }>
+            Loading ...
+          </h1>
+        </div>
+      </div>
+    )
+  }
+
   return(
     <div className='dashContainer'>
       <header className='verticalHeader'>
         <img src={logoAlt} alt='< J />'/>
         <div className='icons'>
           <div className='iconsBack'>
-            <FiUser size={24} color= '#FFF'/>
+            <FiUser size={32} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiGrid size={24} color= '#FFF'/>
+            <FiGrid size={32} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiDollarSign size={24} color= '#FFF'/>
+            <FiDollarSign size={32} color= '#FFF'/>
           </div>
           <div className='iconsBack'>
-            <FiSettings size={24} color= '#FFF'/>
+            <FiSettings size={32} color= '#FFF'/>
           </div>
         </div>
 
-        <Link className= 'linkDecoration' to='/'>
+        <button
+          className= 'linkDecoration'
+          onClick={handleLogOut}
+        >
           <div className='iconLogOut'>
-            <FiLogOut size={24} color='#235BE9'/>
+            <FiLogOut size={32} color='#235BE9'/>
             <b>Sair</b>
           </div>
-        </Link>
+        </button>
       </header>
 
       <div className='divsContainer'>
@@ -208,8 +262,8 @@ function Dashboard() {
           <div className='currentServices'>
             <div className='creditCard'>
               <section className='creditHeader'>
-                <FcSimCardChip size={46}/>
-                <ImConnection size={28} color='#EEEE'/>
+                <FcSimCardChip/>
+                <ImConnection color='#EEEE'/>
               </section>
               <p className="creditNumber">0000 0000 0000 0000</p>
               <section className='creditFooter'>

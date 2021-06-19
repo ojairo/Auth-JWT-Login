@@ -79,4 +79,7 @@ form input{
 
 .linkDecoration{
   text-decoration: none;
+  text-decoration: none;
+  border: none;
+  background: none;
 }
